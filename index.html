@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-MediumItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="shortcut icon" href="assets/img/favicon.ico">
+		<title>Home Page</title>
+		<script type="module" crossorigin="" src="./js/app.min.js?v=1748006947338"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1748006947338">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header data-fls-header="" data-fls-header-scroll="" class="header">
+				<div class="header__container">
+					<!-- <include src="@components/layout/menu/menu.html" locals='{"active":"Home"}'></include> -->
+					<div class="header__logo">
+						<a href="#">
+							<img alt="Logotype" src="./assets/img/logo.webp">
+						</a>
+					</div>
+					<div class="header__menu menu">
+						<button type="button" class="menu__icon icon-menu" data-fls-menu="">
+							<span></span>
+						</button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="about.html" class="menu__link">info</a>
+								</li>
+								<li class="menu__item">
+									<a href="contacts.html" class="menu__link">let's talk</a>
+								</li>
+							</ul>
+							<div class="menu__button">
+								<a href="#">book a call</a>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
+			<main class="page page--home">
+				<section class="hero">
+					<div class="hero__container">
+						<div class="hero__content">
+							<h1 data-fls-watcher="" data-fls-watcher-once="" class="hero__content-title">We create images  to empower your  design.</h1>
+							<div data-fls-watcher="" data-fls-watcher-once="" class="hero__content-button">
+								<a data-fls-button="" href="contacts.html" class="button">collaborate</a>
+							</div>
+						</div>
+						<!-- <div data-fls-watcher data-fls-watcher-once class="hero__image"> -->
+						<!-- <img src="@img/hero/01.png" alt="Hero Image"> -->
+						<div class="hero__image gallery__slider" data-fls-watcher="" data-fls-watcher-once="" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/hero/01.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/hero/01-1.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/hero/01-2.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/hero/01-3.webp">
+								</div>
+							</div>
+							<!-- </div> -->
+						</div>
+					</div>
+				</section>
+				<section class="gallery">
+					<div class="gallery__container">
+						<!--
+<div class="gallery__image gallery__slider" data-index="0">
+<div class="gallery__slider-wrapper">
+<img src="@img/gallery/01.png" alt="Gallery Image" class="active">
+<img src="@img/gallery/01-2.png" alt="Gallery Image">
+<img src="@img/gallery/01-3.png" alt="Gallery Image">
+</div>
+</div>
+-->
+						<div class="gallery__image gallery__slider" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/gallery/01.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/01-2.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/01-3.webp">
+								</div>
+							</div>
+						</div>
+						<div class="gallery__image gallery__slider" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/gallery/02.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/02-1.webp">
+								</div>
+							</div>
+						</div>
+						<div class="gallery__image">
+							<img alt="Gallery Image" src="./assets/img/gallery/03.webp">
+						</div>
+						<div class="gallery__image gallery__slider" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/gallery/04.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/04-1.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/03.webp">
+								</div>
+							</div>
+						</div>
+						<div class="gallery__image">
+							<img alt="Gallery Image" src="./assets/img/gallery/05.webp">
+						</div>
+						<div class="gallery__image gallery__slider" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/gallery/06.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/06-1.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/06-2.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/05.webp">
+								</div>
+							</div>
+						</div>
+						<div class="gallery__image">
+							<img alt="Gallery Image" src="./assets/img/gallery/07.webp">
+						</div>
+						<div class="gallery__image gallery__slider" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/gallery/08.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/08-1.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/08-2.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/08-3.webp">
+								</div>
+							</div>
+						</div>
+						<div class="gallery__text">
+							<p>
+								With attention
+							to every detail,we help communicate
+							your project & vision 
+							with confidence
+							</p>
+						</div>
+						<div class="gallery__image gallery__slider" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/gallery/09.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/09-1.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/09-2.webp">
+								</div>
+							</div>
+						</div>
+						<div class="gallery__image">
+							<img alt="Gallery Image" src="./assets/img/gallery/10.webp">
+						</div>
+						<div class="gallery__image gallery__slider" data-index="0">
+							<div class="gallery__slider-wrapper">
+								<div class="gallery__slide active">
+									<img alt="Gallery Image" src="./assets/img/gallery/11.webp">
+								</div>
+								<div class="gallery__slide">
+									<img alt="Gallery Image" src="./assets/img/gallery/11-1.webp">
+								</div>
+							</div>
+						</div>
+						<div class="gallery__image">
+							<img alt="Gallery Image" src="./assets/img/gallery/12.webp">
+						</div>
+						<div class="gallery__image">
+							<img alt="Gallery Image" src="./assets/img/gallery/13.webp">
+						</div>
+						<!--
+<div class="image-container">
+<div class="image-wrapper">
+<img src="@img/gallery/01.png" alt="Image 1" class="active">
+<img src="@img/gallery/02.png" alt="Image 2" class="hidden">
+</div>
+<div class="controls">
+<span class="image-count">1 / 2</span>
+<div class="arrows">
+<div class="arrow-left">&#8592;</div>
+<div class="arrow-right">&#8594;</div>
+</div>
+</div>
+</div>
+-->
+						<!--
+<div class="gallery__column">
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+</div>
+<div class="gallery__column">
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+</div>
+<div class="gallery__column">
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+</div>
+<div class="gallery__column">
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+</div>
+<div class="gallery__column">
+<div class="gallery__text">
+<p>With attention
+to every detail, we help communicate
+your project & vision
+with confidence</p>
+</div>
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+</div>
+<div class="gallery__column">
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+</div>
+<div class="gallery__column">
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+<div class="gallery__image">
+<img src="@img/gallery/01.png" alt="Gallery Image">
+</div>
+</div>
+-->
+					</div>
+				</section>
+				<section class="unique">
+					<div class="unique__container">
+						<h2 class="unique__title">what makes us unique?</h2>
+						<div class="unique__items">
+							<div class="unique__item">
+								<div class="unique__item-title">Confidence</div>
+								<div class="unique__item-text">
+									<p>
+										WE’RE ARCHITECT-FOUNDED, SO WE DON’T JUST UNDERSTAND GOOD VISUALS — WE UNDERSTAND DESIGN INTENT. YOU’LL WORK WITH SOMEONE WHO SPEAKS YOUR LANGUAGE, GRASPS YOUR IDEAS QUICKLY, AND DELIVERS IMAGES THAT COMMUNICATE YOUR VISION WITH CLARITY AND PRECISION.
+									</p>
+								</div>
+							</div>
+							<div class="unique__item">
+								<div class="unique__item-title">quality</div>
+								<div class="unique__item-text">
+									<p>
+										WE BASE OUR VISUALS ON CORRECT ARCHITECTURAL PROPORTIONS, STRONG COMPOSITION, AND THE PRINCIPLES OF PROFESSIONAL PHOTOGRAPHY — ENSURING EVERY IMAGE FEELS BALANCED, INTENTIONAL, AND TRUE TO DESIGN. WE CRAFT EACH SCENE WITH AN OBSESSION FOR DETAIL, FROM MATERIALITY TO LIGHT, SO YOUR PROJECT IS SHOWN AT ITS BEST.
+									</p>
+								</div>
+							</div>
+							<div class="unique__item">
+								<div class="unique__item-title">workflow</div>
+								<div class="unique__item-text">
+									<p>
+										WE’RE STRUCTURED TO FIT SEAMLESSLY INTO YOUR PROCESS. OUR EXPERIENCE WORKING WITH ARCHITECTURAL TEAMS MEANS WE KNOW HOW TO COMMUNICATE EFFICIENTLY, ADAPT QUICKLY, AND NEVER MISS A DEADLINE. YOU’LL ALWAYS KNOW WHAT STAGE WE’RE AT — AND WHAT COMES NEXT.
+									</p>
+								</div>
+							</div>
+							<div class="unique__item">
+								<div class="unique__item-title">Consistency</div>
+								<div class="unique__item-text">
+									<p>
+										WE LIMIT OUR WORKLOAD TO ENSURE EVERY CLIENT RECEIVES FULL ATTENTION AND CONSISTENCY, TOP-TIER OUTPUT. NO OUTSOURCING, NO HAND-OFFS — JUST DIRECT, TRANSPARENT COLLABORATION FROM START TO FINISH.
+									</p>
+								</div>
+							</div>
+							<div class="unique__item">
+								<div class="unique__item-title">dedication</div>
+								<div class="unique__item-text">
+									<p>
+										THIS IS NOT JUST A SERVICE — IT’S A CRAFT. YOU’RE NOT GETTING A GENERIC RENDERING PROVIDER. YOU’RE WORKING WITH SOMEONE COMMITTED TO HELPING YOU COMMUNICATE GREAT ARCHITECTURE THROUGH IMAGES THAT MATTER.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="unique__collaborate">
+							<div class="unique__collaborate-text">let's get you project noticed!</div>
+							<div class="unique__collaborate-button">
+								<a href="contacts.html" class="button">collaborate</a>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			<footer data-fls-footer="" class="footer">
+				<div class="footer__container">
+					<div class="footer__contacts">
+						<a href="mailto:">contact@theo-lab.com</a>
+						|
+						<a href="">instagram</a>
+					</div>
+					<div class="footer__wrapper">
+						<div class="footer__based">
+							<span>BASED IN FRANCE</span>
+							<br>
+							<span>WORKING WORLDWIDE</span>
+						</div>
+						<div class="footer__name">theolab</div>
+						<p class="footer__descr">SERVICE-FOCUSED BOUTIQUE ARCHITECTURAL VISUALIZATION STUDIO</p>
+						<div class="footer__text">
+							<p>
+								all pictures, videos, illustrations and materials on this website are copyrighted. You need written authorization in order to use elements of this site for commercial use. So reproduction, modification, storage in a retrieval system or retransmission, in any form or by any means, for other reasons than personal use, is strictly forbidden without prior written permission.
+							</p>
+						</div>
+						<small class="footer__copy">ALL RIGHTS RESERVED © 2025 THEOLAB</small>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

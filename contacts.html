@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-MediumItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/HostGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="shortcut icon" href="assets/img/favicon.ico">
+		<title>Home Page</title>
+		<script type="module" crossorigin="" src="./js/app.min.js?v=1748006947338"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1748006947338">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header data-fls-header="" data-fls-header-scroll="" class="header">
+				<div class="header__container">
+					<!-- <include src="@components/layout/menu/menu.html" locals='{"active":"Home"}'></include> -->
+					<div class="header__logo">
+						<a href="#">
+							<img alt="Logotype" src="./assets/img/logo.webp">
+						</a>
+					</div>
+					<div class="header__menu menu">
+						<button type="button" class="menu__icon icon-menu" data-fls-menu="">
+							<span></span>
+						</button>
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="about.html" class="menu__link">info</a>
+								</li>
+								<li class="menu__item">
+									<a href="contacts.html" class="menu__link">let's talk</a>
+								</li>
+							</ul>
+							<div class="menu__button">
+								<a href="#">book a call</a>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</header>
+			<div data-fls-popup="popup" aria-hidden="true" class="popup">
+				<div data-fls-popup-wrapper="" class="popup__wrapper">
+					<div data-fls-popup-body="" class="popup__body">
+						<button data-fls-popup-close="" type="button" class="popup__close">
+							<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
+								<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
+							</svg>
+						</button>
+						<div data-fls-popup-content="" class="popup__text">
+							<p>THANKS FOR REACHING US OUT</p>
+							<p>OUR TEAM WILL CONTACT YOU IN THE NEAREST TIME</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-fls-popup="popup-error" aria-hidden="true" class="popup" id="popup-error">
+				<div data-fls-popup-wrapper="" class="popup__wrapper">
+					<div data-fls-popup-body="" class="popup__body">
+						<button data-fls-popup-close="" type="button" class="popup__close">
+							<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
+								<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
+							</svg>
+						</button>
+						<div data-fls-popup-content="" class="popup__text">
+							<p>Something went wrong :(</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<main class="page page--home">
+				<section class="form">
+					<div class="form__container">
+						<div class="form__content">
+							<h2 class="form__content-title">say hi!</h2>
+							<form data-fls-form="ajax" data-fls-form-validatenow="" data-fls-form-popup="popup" method="POST" action="/sendmail" class="form__content-form">
+								<label>
+									<span class="hidden">Your Name</span>
+									<input data-fls-input="" class="form__content-input input" required data-fls-form-errtext="Please enter your name" type="text" name="form[name]" placeholder="your name">
+								</label>
+								<label>
+									<span class="hidden">Company Name</span>
+									<input data-fls-input="" required data-fls-form-errtext="Please enter your company name" class="form__content-input input" type="text" name="form[company]" placeholder="company name">
+								</label>
+								<label>
+									<span class="hidden">Email</span>
+									<input data-fls-input="" class="form__content-input input" required data-fls-form-errtext="Please enter your right email address" type="email" name="form[email]" placeholder="email">
+								</label>
+								<label>
+									<span class="hidden">Project Description</span>
+									<textarea data-fls-input="" data-fls-input-autoheight="" required class="form__content-textarea input" name="form[message]" data-fls-form-errtext="Please describe your project" placeholder="tell us about your project"></textarea>
+								</label>
+								<button data-fls-ripple="" type="submit" class="form__content-button">
+									Send
+									<svg viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_21_120)">
+											<path d="M3.15282 22.232L17.665 7.71979L17.665 21.0514L21.0396 21.0395V1.96023H1.96036L1.96036 5.32295L15.2801 5.33488L0.767907 19.8471L3.15282 22.232Z"></path>
+										</g>
+										<defs>
+											<clipPath id="clip0_21_120">
+												<rect width="23" height="23" fill="white"></rect>
+											</clipPath>
+										</defs>
+									</svg>
+								</button>
+							</form>
+						</div>
+						<div class="form__image">
+							<img alt="Project Image" src="./assets/img/contacts/01.webp">
+						</div>
+					</div>
+				</section>
+			</main>
+			<footer data-fls-footer="" class="footer">
+				<div class="footer__container">
+					<div class="footer__contacts">
+						<a href="mailto:">contact@theo-lab.com</a>
+						|
+						<a href="">instagram</a>
+					</div>
+					<div class="footer__wrapper">
+						<div class="footer__based">
+							<span>BASED IN FRANCE</span>
+							<br>
+							<span>WORKING WORLDWIDE</span>
+						</div>
+						<div class="footer__name">theolab</div>
+						<p class="footer__descr">SERVICE-FOCUSED BOUTIQUE ARCHITECTURAL VISUALIZATION STUDIO</p>
+						<div class="footer__text">
+							<p>
+								all pictures, videos, illustrations and materials on this website are copyrighted. You need written authorization in order to use elements of this site for commercial use. So reproduction, modification, storage in a retrieval system or retransmission, in any form or by any means, for other reasons than personal use, is strictly forbidden without prior written permission.
+							</p>
+						</div>
+						<small class="footer__copy">ALL RIGHTS RESERVED © 2025 THEOLAB</small>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<div data-fls-popup="popup" aria-hidden="true" class="popup">
+			<div data-fls-popup-wrapper="" class="popup__wrapper">
+				<div data-fls-popup-body="" class="popup__body">
+					<button data-fls-popup-close="" type="button" class="popup__close">
+						<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
+							<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
+						</svg>
+					</button>
+					<div data-fls-popup-content="" class="popup__text">
+						<p>THANKS FOR REACHING US OUT</p>
+						<p>OUR TEAM WILL CONTACT YOU IN THE NEAREST TIME</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-fls-popup="popup-error" aria-hidden="true" class="popup" id="popup-error">
+			<div data-fls-popup-wrapper="" class="popup__wrapper">
+				<div data-fls-popup-body="" class="popup__body">
+					<button data-fls-popup-close="" type="button" class="popup__close">
+						<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
+							<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
+						</svg>
+					</button>
+					<div data-fls-popup-content="" class="popup__text">
+						<p>Something went wrong :(</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
