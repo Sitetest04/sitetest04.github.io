@@ -86,8 +86,42 @@ let bodyLock = (delay = 500) => {
 function uniqArray(array) {
   return array.filter((item, index, self) => self.indexOf(item) === index);
 }
+const gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
+  const targetBlockElement = document.querySelector(targetBlock);
+  if (targetBlockElement) {
+    let headerItem = "";
+    let headerItemHeight = 0;
+    if (noHeader) {
+      headerItem = "header.header";
+      const headerElement = document.querySelector(headerItem);
+      if (!headerElement.classList.contains("--header-scroll")) {
+        headerElement.style.cssText = `transition-duration: 0s;`;
+        headerElement.classList.add("--header-scroll");
+        headerItemHeight = headerElement.offsetHeight;
+        headerElement.classList.remove("--header-scroll");
+        setTimeout(() => {
+          headerElement.style.cssText = ``;
+        }, 0);
+      } else {
+        headerItemHeight = headerElement.offsetHeight;
+      }
+    }
+    if (document.documentElement.hasAttribute("data-fls-menu-open")) {
+      bodyUnlock();
+      document.documentElement.removeAttribute("data-fls-menu-open");
+    }
+    let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
+    targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+    targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+    window.scrollTo({
+      top: targetBlockElementPosition,
+      behavior: "smooth"
+    });
+  }
+};
 function boldText() {
   const title = document.querySelector(".gallery__text p");
+  if (!title) return;
   let text = title.textContent;
   text = text.replace(",", "<span>, </span>");
   text = text.replace("&", "<span>&</span>");
@@ -638,6 +672,101 @@ const autoHeight = () => {
   }
 };
 document.querySelector("textarea[data-fls-input-autoheight]") ? window.addEventListener("load", autoHeight) : null;
+let formValidate = {
+  getErrors(form) {
+    let error = 0;
+    let formRequiredItems = form.querySelectorAll("[required]");
+    if (formRequiredItems.length) {
+      formRequiredItems.forEach((formRequiredItem) => {
+        if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
+          error += this.validateInput(formRequiredItem);
+        }
+      });
+    }
+    return error;
+  },
+  validateInput(formRequiredItem) {
+    let error = 0;
+    if (formRequiredItem.type === "email") {
+      formRequiredItem.value = formRequiredItem.value.replace(" ", "");
+      if (this.emailTest(formRequiredItem)) {
+        this.addError(formRequiredItem);
+        this.removeSuccess(formRequiredItem);
+        error++;
+      } else {
+        this.removeError(formRequiredItem);
+        this.addSuccess(formRequiredItem);
+      }
+    } else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
+      this.addError(formRequiredItem);
+      this.removeSuccess(formRequiredItem);
+      error++;
+    } else {
+      if (!formRequiredItem.value.trim()) {
+        this.addError(formRequiredItem);
+        this.removeSuccess(formRequiredItem);
+        error++;
+      } else {
+        this.removeError(formRequiredItem);
+        this.addSuccess(formRequiredItem);
+      }
+    }
+    return error;
+  },
+  addError(formRequiredItem) {
+    formRequiredItem.classList.add("--form-error");
+    formRequiredItem.parentElement.classList.add("--form-error");
+    let inputError = formRequiredItem.parentElement.querySelector("[data-fls-form-error]");
+    if (inputError) formRequiredItem.parentElement.removeChild(inputError);
+    if (formRequiredItem.dataset.flsFormErrtext) {
+      formRequiredItem.parentElement.insertAdjacentHTML("beforeend", `<div data-fls-form-error>${formRequiredItem.dataset.flsFormErrtext}</div>`);
+    }
+  },
+  removeError(formRequiredItem) {
+    formRequiredItem.classList.remove("--form-error");
+    formRequiredItem.parentElement.classList.remove("--form-error");
+    if (formRequiredItem.parentElement.querySelector("[data-fls-form-error]")) {
+      formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector("[data-fls-form-error]"));
+    }
+  },
+  addSuccess(formRequiredItem) {
+    formRequiredItem.classList.add("--form-success");
+    formRequiredItem.parentElement.classList.add("--form-success");
+  },
+  removeSuccess(formRequiredItem) {
+    formRequiredItem.classList.remove("--form-success");
+    formRequiredItem.parentElement.classList.remove("--form-success");
+  },
+  formClean(form) {
+    form.reset();
+    setTimeout(() => {
+      let inputs = form.querySelectorAll("input,textarea");
+      for (let index = 0; index < inputs.length; index++) {
+        const el = inputs[index];
+        el.parentElement.classList.remove("--form-focus");
+        el.classList.remove("--form-focus");
+        formValidate.removeError(el);
+      }
+      let checkboxes = form.querySelectorAll('input[type="checkbox"]');
+      if (checkboxes.length) {
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+      }
+      if (window["flsSelect"]) {
+        let selects = form.querySelectorAll("select[data-fls-select]");
+        if (selects.length) {
+          selects.forEach((select) => {
+            window["flsSelect"].selectBuild(select);
+          });
+        }
+      }
+    }, 0);
+  },
+  emailTest(formRequiredItem) {
+    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
+  }
+};
 function formInit() {
   function formSubmit() {
     const forms = document.forms;
@@ -645,56 +774,60 @@ function formInit() {
       for (const form of forms) {
         !form.hasAttribute("data-fls-form-novalidate") ? form.setAttribute("novalidate", true) : null;
         form.addEventListener("submit", function(e) {
-          e.preventDefault();
-          formSubmitAction(e.target);
+          const form2 = e.target;
+          formSubmitAction(form2, e);
         });
         form.addEventListener("reset", function(e) {
-          formValidate.formClean(e.target);
+          const form2 = e.target;
+          formValidate.formClean(form2);
         });
       }
     }
-    async function formSubmitAction(form) {
-      var _a, _b;
+    async function formSubmitAction(form, e) {
       const error = formValidate.getErrors(form);
       if (error === 0) {
         if (form.dataset.flsForm === "ajax") {
-          const formAction = ((_a = form.getAttribute("action")) == null ? void 0 : _a.trim()) || "#";
-          const formMethod = ((_b = form.getAttribute("method")) == null ? void 0 : _b.trim()) || "POST";
+          e.preventDefault();
+          const formAction = form.getAttribute("action") ? form.getAttribute("action").trim() : "#";
+          const formMethod = form.getAttribute("method") ? form.getAttribute("method").trim() : "GET";
           const formData = new FormData(form);
           form.classList.add("--sending");
-          try {
-            const response = await fetch(formAction, {
-              method: formMethod,
-              body: formData
-            });
-            if (response.ok) {
-              const result = await response.json();
-              form.classList.remove("--sending");
-              formSent(form, result);
-            } else {
-              throw new Error("Fetch error");
-            }
-          } catch (err) {
+          const response = await fetch(formAction, {
+            method: formMethod,
+            body: formData
+          });
+          if (response.ok) {
+            let responseResult = await response.json();
             form.classList.remove("--sending");
-            if (window.flsPopup) window.flsPopup.open("#popup-error");
+            formSent(form, responseResult);
+          } else {
+            form.classList.remove("--sending");
+            if (window.flsPopup) {
+              window.flsPopup.open("#popup-error");
+            }
           }
         } else if (form.dataset.flsForm === "dev") {
+          e.preventDefault();
           formSent(form);
         }
       } else {
+        e.preventDefault();
         if (form.querySelector(".--form-error") && form.hasAttribute("data-fls-form-gotoerr")) {
-          gotoBlock(form.dataset.flsFormGotoerr || ".--form-error");
+          const formGoToErrorClass = form.dataset.flsFormGotoerr ? form.dataset.flsFormGotoerr : ".--form-error";
+          gotoBlock(formGoToErrorClass);
         }
       }
     }
-    function formSent(form, responseResult = {}) {
+    function formSent(form, responseResult = ``) {
       document.dispatchEvent(new CustomEvent("formSent", {
-        detail: { form }
+        detail: {
+          form
+        }
       }));
       setTimeout(() => {
         if (window.flsPopup) {
           const popup = form.dataset.flsFormPopup;
-          if (popup) window.flsPopup.open(popup);
+          popup ? window.flsPopup.open(popup) : null;
         }
       }, 0);
       formValidate.formClean(form);
@@ -703,34 +836,30 @@ function formInit() {
   function formFieldsInit() {
     document.body.addEventListener("focusin", function(e) {
       const targetElement = e.target;
-      if (["INPUT", "TEXTAREA"].includes(targetElement.tagName)) {
+      if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
         if (!targetElement.hasAttribute("data-fls-form-nofocus")) {
           targetElement.classList.add("--form-focus");
           targetElement.parentElement.classList.add("--form-focus");
         }
         formValidate.removeError(targetElement);
+        targetElement.hasAttribute("data-fls-form-validatenow") ? formValidate.removeError(targetElement) : null;
       }
     });
     document.body.addEventListener("focusout", function(e) {
       const targetElement = e.target;
-      if (["INPUT", "TEXTAREA"].includes(targetElement.tagName)) {
+      if (targetElement.tagName === "INPUT" || targetElement.tagName === "TEXTAREA") {
         if (!targetElement.hasAttribute("data-fls-form-nofocus")) {
           targetElement.classList.remove("--form-focus");
           targetElement.parentElement.classList.remove("--form-focus");
         }
-        if (targetElement.hasAttribute("data-fls-form-validatenow")) {
-          formValidate.validateInput(targetElement);
-        }
+        targetElement.hasAttribute("data-fls-form-validatenow") ? formValidate.validateInput(targetElement) : null;
       }
     });
   }
   formSubmit();
   formFieldsInit();
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("[data-fls-form]");
-  if (form) formInit();
-});
+document.querySelector("[data-fls-form]") ? window.addEventListener("load", formInit) : null;
 function rippleEffect() {
   document.addEventListener("click", function(e) {
     const targetItem = e.target;
