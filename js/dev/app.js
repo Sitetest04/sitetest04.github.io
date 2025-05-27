@@ -142,25 +142,27 @@ function imageSlide() {
       });
       counter.textContent = `${index + 1}/${slides.length}`;
     };
-    wrapper.addEventListener("mousemove", (e) => {
-      const bounds = wrapper.getBoundingClientRect();
-      const x = e.clientX - bounds.left;
-      if (x < bounds.width / 2) {
-        wrapper.style.cursor = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='24' viewBox='0 0 120 24' fill='none' stroke='%233333CC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='120' y1='12' x2='10' y2='12'/%3E%3Cpolyline points='20,4 10,12 20,20'/%3E%3C/svg%3E") 20 12, pointer`;
-      } else {
-        wrapper.style.cursor = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='24' viewBox='0 0 120 24' fill='none' stroke='%233333CC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='0' y1='12' x2='110' y2='12'/%3E%3Cpolyline points='100,4 110,12 100,20'/%3E%3C/svg%3E") 100 12, pointer`;
-      }
-    });
-    wrapper.addEventListener("click", (e) => {
-      const bounds = wrapper.getBoundingClientRect();
-      const x = e.clientX - bounds.left;
-      if (x < bounds.width / 2) {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      } else {
-        currentIndex = (currentIndex + 1) % slides.length;
-      }
-      showImage(currentIndex);
-    });
+    if (!("ontouchstart" in window)) {
+      wrapper.addEventListener("mousemove", (e) => {
+        const bounds = wrapper.getBoundingClientRect();
+        const x = e.clientX - bounds.left;
+        if (x < bounds.width / 2) {
+          wrapper.style.cursor = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='24' viewBox='0 0 70 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='70' y1='12' x2='10' y2='12'/%3E%3Cpolyline points='20,4 10,12 20,20'/%3E%3C/svg%3E") 20 12, pointer`;
+        } else {
+          wrapper.style.cursor = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='24' viewBox='0 0 70 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='0' y1='12' x2='60' y2='12'/%3E%3Cpolyline points='50,4 60,12 50,20'/%3E%3C/svg%3E") 50 12, pointer`;
+        }
+      });
+      wrapper.addEventListener("click", (e) => {
+        const bounds = wrapper.getBoundingClientRect();
+        const x = e.clientX - bounds.left;
+        if (x < bounds.width / 2) {
+          currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        } else {
+          currentIndex = (currentIndex + 1) % slides.length;
+        }
+        showImage(currentIndex);
+      });
+    }
     let touchStartX = 0;
     let touchEndX = 0;
     wrapper.addEventListener("touchstart", (e) => {
@@ -185,24 +187,11 @@ function imageSlide() {
     showImage(currentIndex);
   });
 }
-function compressImage() {
-  window.addEventListener("load", () => {
-    function resizeImages(container) {
-      const imgs = container.querySelectorAll("img");
-      imgs.forEach((img) => {
-        const naturalWidth = img.naturalWidth || img.width;
-        const naturalHeight = img.naturalHeight || img.height;
-        if (naturalWidth && naturalHeight) {
-          img.width = Math.round(naturalWidth / 3);
-          img.height = Math.round(naturalHeight / 3);
-        }
-      });
+function imageBlock() {
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
     }
-    const galleryContainers = document.querySelectorAll(".gallery__container, .hero__image.gallery__slider");
-    galleryContainers.forEach((container) => {
-      resizeImages(container);
-      container.classList.add("ready");
-    });
   });
 }
 function menuInit() {
@@ -367,7 +356,7 @@ document.querySelector("[data-fls-watcher]") ? window.addEventListener("load", (
 boldText();
 addLoadedAttr();
 imageSlide();
-compressImage();
+imageBlock();
 class Popup {
   constructor(options) {
     let config = {
@@ -823,8 +812,9 @@ function formInit() {
             formSent(form, responseResult);
           } else {
             form.classList.remove("--sending");
-            if (window.flsPopup) {
-              window.flsPopup.open("#popup-error");
+            if (!response.ok) {
+              document.activeElement.blur();
+              window.flsPopup.open("popup-error");
             }
           }
         } else if (form.dataset.flsForm === "dev") {
