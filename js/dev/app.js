@@ -235,6 +235,10 @@ function headerScroll() {
   });
 }
 document.querySelector("[data-fls-header-scroll]") ? window.addEventListener("load", headerScroll) : null;
+boldText();
+addLoadedAttr();
+imageSlide();
+imageBlock();
 class ScrollWatcher {
   constructor(props) {
     let defaultConfig = {
@@ -353,10 +357,6 @@ class ScrollWatcher {
   }
 }
 document.querySelector("[data-fls-watcher]") ? window.addEventListener("load", () => new ScrollWatcher({})) : null;
-boldText();
-addLoadedAttr();
-imageSlide();
-imageBlock();
 class Popup {
   constructor(options) {
     let config = {
