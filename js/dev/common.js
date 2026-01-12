@@ -151,6 +151,7 @@ function dataMediaQueries(array, dataSetValue) {
 document.querySelectorAll(".portfolio__tab-video").forEach((block) => {
   const video = block.querySelector("video");
   const btn = block.querySelector(".portfolio__tab-video-play");
+  if (!video || !btn) return;
   btn.addEventListener("click", () => {
     video.setAttribute("controls", "controls");
     video.play();
@@ -169,6 +170,26 @@ document.querySelectorAll(".portfolio__tab-video").forEach((block) => {
       top: 0,
       behavior: "smooth"
     });
+  });
+});
+document.querySelectorAll(".drawings__tab-video").forEach((block) => {
+  const video = block.querySelector("video");
+  const btn = block.querySelector(".drawings__tab-video-play");
+  if (!video || !btn) return;
+  btn.addEventListener("click", () => {
+    video.muted = false;
+    video.volume = 1;
+    video.play();
+    btn.style.display = "none";
+  });
+  video.addEventListener("click", () => {
+    if (video.paused) {
+      video.play();
+      btn.style.display = "none";
+    } else {
+      video.pause();
+      btn.style.display = "flex";
+    }
   });
 });
 addLoadedAttr();

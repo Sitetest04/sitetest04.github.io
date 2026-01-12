@@ -5074,7 +5074,7 @@ function initSliders() {
       // <- Вказуємо склас потрібного слайдера
       // Підключаємо модулі слайдера
       // для конкретного випадку
-      modules: [Pagination, Autoplay],
+      modules: [Pagination],
       observer: true,
       observeParents: true,
       slidesPerView: 1,
@@ -5088,10 +5088,12 @@ function initSliders() {
       //lazy: true,
       // Ефекти
       // effect: 'fade',
+      /*
       autoplay: {
-        delay: 4e3,
-        disableOnInteraction: true
+      	delay: 4000,
+      	disableOnInteraction: true,
       },
+      */
       // Пагінація
       pagination: {
         el: ".swiper-pagination",
@@ -5147,7 +5149,7 @@ function initSliders() {
       observeParents: true,
       // slidesPerView: 2,
       spaceBetween: 20,
-      //autoHeight: true,
+      autoHeight: true,
       speed: 800,
       //touchRatio: 0,
       //simulateTouch: false,

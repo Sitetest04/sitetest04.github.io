@@ -454,8 +454,8 @@ html {
 }
 .portfolio__tab-video {
   position: relative;
-  max-width: 20rem;
-  max-height: 32.5rem;
+  max-width: 21.25rem;
+  max-height: 36.25rem;
   border-radius: 0.3125rem;
   overflow: hidden;
 }
@@ -488,8 +488,8 @@ html {
   flex-direction: column;
 }
 .portfolio__tab-image {
-  width: 20rem;
-  height: 15.625rem;
+  width: 21.25rem;
+  height: 17.5rem;
   border-radius: 0.3125rem;
 }
 .portfolio__tab-image img {
@@ -511,13 +511,7 @@ html {
 }
 .portfolio__tab-title {
   max-width: 31.25rem;
-}
-.portfolio__tab-items {
   flex: 1 1 auto;
-  display: flex;
-}
-.portfolio__tab-items:not(:last-child) {
-  margin-bottom: 1.875rem;
 }
 .portfolio__tab-item {
   font-weight: 300;
@@ -532,10 +526,10 @@ html {
   max-width: 32.875rem;
 }
 .portfolio__tab-text:not(:last-child) {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.625rem;
 }
 .portfolio__tab-text p {
-  font-weight: 400;
+  font-weight: 300;
 }
 .portfolio__tab-text p {
   line-height: 139%;
@@ -588,7 +582,7 @@ html {
   line-height: 1.1;
 }
 .process__list-item:not(:last-child) {
-  margin-bottom: 1.5625rem;
+  margin-bottom: 0.9375rem;
 }
 .process__list-item {
   display: flex;
@@ -657,8 +651,8 @@ html {
 }
 .drawings__tab-video {
   position: relative;
-  max-width: 20rem;
-  max-height: 32.5rem;
+  max-width: 16.375rem;
+  max-height: 33.75rem;
   border-radius: 0.3125rem;
   overflow: hidden;
 }
@@ -674,7 +668,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.25);
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -703,6 +696,10 @@ html {
 }
 .reviews__content-text p:not(:last-child) {
   margin-bottom: 1.25rem;
+}
+.reviews__wrapper {
+  display: flex;
+  align-items: end;
 }
 .reviews__slider {
   max-width: 53.125rem;
@@ -1300,16 +1297,19 @@ html {
   .portfolio__tab-text {
     order: 4;
   }
+  .process__image {
+    top: 0rem;
+  }
   .drawings__wrapper {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   .drawings__descr-text {
     max-width: 100%;
   }
   .drawings__content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   .drawings__content-text {
     max-width: 100%;
@@ -1325,8 +1325,8 @@ html {
     flex-direction: column;
   }
   .drawings__tab-video {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 18.75rem;
+    max-height: 50rem;
   }
   .reviews__titles-subtitle {
     max-width: 21.875rem;
@@ -1353,8 +1353,11 @@ html {
   }
   .faq::before {
     height: 100%;
-    opacity: 0.8;
+    opacity: 0.7;
     width: 18.75rem;
+  }
+  .faq__spollers-item {
+    background-color: rgba(120, 83, 66, 0.9);
   }
   .header__container {
     gap: 5rem;
@@ -1487,10 +1490,7 @@ html {
     font-size: 1.375rem;
   }
   .portfolio__tab-title:not(:last-child) {
-    margin-bottom: 0.625rem;
-  }
-  .portfolio__tab-items {
-    gap: 0.9375rem;
+    margin-bottom: 0.9375rem;
   }
   .portfolio__tab-item {
     font-size: 1.125rem;
@@ -1502,7 +1502,7 @@ html {
     padding-top: 2.1875rem;
   }
   .process__image {
-    top: 1.25rem;
+    top: 3.75rem;
   }
   .process__wrapper {
     padding-top: 2.5rem;
@@ -1553,13 +1553,13 @@ html {
     padding-top: 1.25rem;
   }
   .reviews__slide-text blockquote {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
   .reviews__slide-footer {
-    padding-top: 1.25rem;
+    padding-top: 0.9375rem;
   }
   .reviews__slide-author {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
   .reviews__slide-niche {
     font-size: 0.875rem;
@@ -1745,25 +1745,22 @@ html {
     gap: clamp( 0.9375rem , 0.84316037735625rem  +  0.4716981132vw , 1.25rem );
   }
   .portfolio__tab-title {
-    font-size: clamp( 1.375rem , 1.224056603775rem  +  0.7547169811vw , 1.875rem );
+    font-size: clamp( 1.375rem , 1.33726415094375rem  +  0.1886792453vw , 1.5rem );
   }
   .portfolio__tab-title:not(:last-child) {
-    margin-bottom: clamp( 0.625rem , 0.43632075471875rem  +  0.9433962264vw , 1.25rem );
-  }
-  .portfolio__tab-items {
-    gap: clamp( 0.9375rem , 0.31485849056875rem  +  3.1132075472vw , 3rem );
+    margin-bottom: clamp( 0.9375rem , 0.84316037735625rem  +  0.4716981132vw , 1.25rem );
   }
   .portfolio__tab-item {
     font-size: clamp( 1.125rem , 1.08726415094375rem  +  0.1886792453vw , 1.25rem );
   }
   .portfolio__tab-text p {
-    font-size: clamp( 1rem , 0.96226415094375rem  +  0.1886792453vw , 1.125rem );
+    font-size: clamp( 1rem , 0.98113207546875rem  +  0.0943396226vw , 1.0625rem );
   }
   .process {
     padding-top: clamp( 2.1875rem , 1.43278301886875rem  +  3.7735849057vw , 4.6875rem );
   }
   .process__image {
-    top: clamp( 1.25rem , 0.87264150943125rem  +  1.8867924528vw , 2.5rem );
+    top: clamp( 3.75rem , 2.6179245283rem  +  5.6603773585vw , 7.5rem );
   }
   .process__wrapper {
     padding-top: clamp( 2.5rem , 2.12264150943125rem  +  1.8867924528vw , 3.75rem );
@@ -1814,13 +1811,13 @@ html {
     padding-top: clamp( 1.25rem , 0.9103773584875rem  +  1.6981132075vw , 2.375rem );
   }
   .reviews__slide-text blockquote {
-    font-size: clamp( 1rem , 0.96226415094375rem  +  0.1886792453vw , 1.125rem );
+    font-size: clamp( 0.875rem , 0.83726415094375rem  +  0.1886792453vw , 1rem );
   }
   .reviews__slide-footer {
-    padding-top: clamp( 1.25rem , 1.13679245283125rem  +  0.5660377358vw , 1.625rem );
+    padding-top: clamp( 0.9375rem , 0.84316037735625rem  +  0.4716981132vw , 1.25rem );
   }
   .reviews__slide-author {
-    font-size: clamp( 1.125rem , 1.08726415094375rem  +  0.1886792453vw , 1.25rem );
+    font-size: clamp( 1rem , 0.96226415094375rem  +  0.1886792453vw , 1.125rem );
   }
   .reviews__slide-niche {
     font-size: clamp( 0.875rem , 0.83726415094375rem  +  0.1886792453vw , 1rem );
@@ -2039,25 +2036,22 @@ html {
     gap: 1.25rem;
   }
   .portfolio__tab-title {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
   .portfolio__tab-title:not(:last-child) {
     margin-bottom: 1.25rem;
-  }
-  .portfolio__tab-items {
-    gap: 3rem;
   }
   .portfolio__tab-item {
     font-size: 1.25rem;
   }
   .portfolio__tab-text p {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
   }
   .process {
     padding-top: 4.6875rem;
   }
   .process__image {
-    top: 2.5rem;
+    top: 7.5rem;
   }
   .process__wrapper {
     padding-top: 3.75rem;
@@ -2108,13 +2102,13 @@ html {
     padding-top: 2.375rem;
   }
   .reviews__slide-text blockquote {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
   .reviews__slide-footer {
-    padding-top: 1.625rem;
+    padding-top: 1.25rem;
   }
   .reviews__slide-author {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
   .reviews__slide-niche {
     font-size: 1rem;
