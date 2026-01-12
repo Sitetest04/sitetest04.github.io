@@ -701,7 +701,7 @@ html {
 }
 .reviews__wrapper {
   display: flex;
-  align-items: end;
+  align-items: end !important;
 }
 .reviews__slider {
   max-width: 53.125rem;
