@@ -455,7 +455,8 @@ html {
 .portfolio__tab-video {
   position: relative;
   max-width: 21.25rem;
-  max-height: 36.25rem;
+  max-height: 42.5rem;
+  min-height: 36.25rem;
   border-radius: 0.3125rem;
   overflow: hidden;
 }
@@ -489,7 +490,8 @@ html {
 }
 .portfolio__tab-image {
   width: 21.25rem;
-  height: 17.5rem;
+  min-height: 17.5rem;
+  max-height: 21.25rem;
   border-radius: 0.3125rem;
 }
 .portfolio__tab-image img {
@@ -1517,7 +1519,7 @@ html {
     font-size: 1rem;
   }
   .drawings {
-    padding-top: 4.375rem;
+    padding-top: 2.5rem;
   }
   .drawings {
     padding-bottom: 2.1875rem;
@@ -1775,7 +1777,7 @@ html {
     font-size: clamp( 1rem , 0.96226415094375rem  +  0.1886792453vw , 1.125rem );
   }
   .drawings {
-    padding-top: clamp( 4.375rem , 2.8655660377375rem  +  7.5471698113vw , 9.375rem );
+    padding-top: clamp( 2.5rem , 2.12264150943125rem  +  1.8867924528vw , 3.75rem );
   }
   .drawings {
     padding-bottom: clamp( 2.1875rem , 1.43278301886875rem  +  3.7735849057vw , 4.6875rem );
@@ -2066,7 +2068,7 @@ html {
     font-size: 1.125rem;
   }
   .drawings {
-    padding-top: 9.375rem;
+    padding-top: 3.75rem;
   }
   .drawings {
     padding-bottom: 4.6875rem;
