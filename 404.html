@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preload" href="./assets/fonts/Raleway-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Raleway-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Raleway-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Raleway-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Raleway-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Cormorant-SemiBoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Cormorant-MediumItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Cormorant-LightItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="preload" href="./assets/fonts/Cormorant-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<link rel="shortcut icon" href="assets/img/favicon.ico">
+		<title>Home Page</title>
+		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1768381954396">
+		<script type="module" crossorigin="" src="./js/button.min.js?v=1768381954396"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/button.min.css?v=1768381954396">
+		<link rel="stylesheet" crossorigin="" href="./css/404.min.css?v=1768381954396">
+	</head>
+	<body>
+		<div class="wrapper">
+			<header data-fls-header="" data-fls-header-scroll="" class="header">
+				<div class="header__container">
+					<!-- <include src="@components/layout/menu/menu.html" locals='{"active":"Home"}'></include> -->
+					<div class="header__menu menu">
+						<button type="button" class="menu__icon icon-menu" data-fls-menu="">
+							<span></span>
+						</button>
+						<nav data-fls-menu="" class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<span>(01)</span>
+									<a href="#about" class="menu__link">Про мене</a>
+								</li>
+								<li class="menu__item">
+									<span>(02)</span>
+									<a href="#portfolio" class="menu__link">Проекти</a>
+								</li>
+								<li class="menu__item">
+									<span>(03)</span>
+									<a href="#process" class="menu__link">Процес роботи</a>
+								</li>
+								<li class="menu__item">
+									<span>(04)</span>
+									<a href="#reviews" class="menu__link">Відгуки</a>
+								</li>
+								<li class="menu__item">
+									<span>(05)</span>
+									<a href="#faq" class="menu__link">Часті питання</a>
+								</li>
+								<li class="menu__item">
+									<span>(06)</span>
+									<a href="#contacts" class="menu__link">Контакти</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+			<main class="page">
+				<section data-fls-404="" class="error">
+					<div class="error__container">
+						<h1 class="error__title">Помилка 404!</h1>
+						<div class="error__text">
+							<p>Вибачте, такої сторінки не знайдено</p>
+						</div>
+						<a data-fls-button="" href="#" class="error__button button button-accent">Повернутися на головну</a>
+					</div>
+				</section>
+			</main>
+			<footer data-fls-footer="" class="footer">
+				<div class="footer__top">
+					<div class="footer__container footer__container-top">
+						<div class="footer__wrapper">
+							<div class="footer__content">
+								<div class="footer__content-text">
+									<p>якщо ви хочете простір,</p>
+									<p>у якому буде легко жити, працювати та приємно відпочивати —</p>
+									<p>буду рада створити його для вас!</p>
+								</div>
+								<div class="footer__content-logo">
+									<img alt="Логотип" src="./assets/img/mainLogo.webp">
+								</div>
+							</div>
+							<div class="footer__image">
+								<img alt="Фото" src="./assets/img/footer/01.webp">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="contacts" class="footer__container footer__container-bottom">
+					<ul class="footer__contacts">
+						<li class="footer__contacts-item">
+							<a href="mailto:0683919105n@gmail.com" class="footer__contacts-link">0683919105n@gmail.com</a>
+						</li>
+						<li class="footer__contacts-item">
+							<a href="tel:+380683919105" class="footer__contacts-link">+38 (068) 391 91 05</a>
+						</li>
+						<li class="footer__contacts-item">
+							<a href="#" class="footer__contacts-link">Instagram</a>
+						</li>
+					</ul>
+					<div class="footer__copy">
+						<div class="footer__copy-legal">ФОП Кириченко Наталія ...</div>
+						<div class="footer__copy-rights">@2025 — Усі права захищені</div>
+					</div>
+				</div>
+				<button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top">
+					<span class="arrow-scroll-top"></span>
+				</button>
+			</footer>
+		</div>
+	</body>
+</html>
